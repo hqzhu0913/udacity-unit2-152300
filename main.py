@@ -51,7 +51,7 @@ def valid_email(email):
 
 def create_hash_value(value):
 	hash_value = hmac.new(SECRET, value).hexdigest();
-	return "%s|%s" % (value, hash_value);
+	return '%s|%s' % (value, hash_value);
 
 def check_hash_value(h):
 	value = h.split("|")[0]
@@ -195,11 +195,11 @@ class SignUp(Handler):
 		return True;
 
 	def set_cookie(self, name, value):
-		cookie_value = create_hash_value(value);
+		cookie_value = str(create_hash_value(value));
 		self.response.headers.add_header('Set-Cookie'
-			, "%s=%s; Path=/" % (name, cookie_value))
+			, "%s=%s; Path=/" % (name, cookie_value));
 
-	def check_cookie():
+	def check_cookie(self):
 		name_hash = self.request.cookies.get('username');
 		pw_hash = self.request.cookies.get('password');
 		username = check_hash_value(name_hash);
@@ -209,11 +209,11 @@ class SignUp(Handler):
 class Welcome(SignUp):
 	"""docstring for Welcome"""
 	def get(self):
-		username = check_cookie();
+		username = self.check_cookie();
 		if username:
 			self.render("welcome.html", name=username);
 		else:
-			self.redirect("signup.html");
+			self.redirect("/blog/signup");
 		
 
 app = webapp2.WSGIApplication([
