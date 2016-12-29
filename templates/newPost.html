@@ -1,5 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
+<section>
+	<h2 class="subheader">New Post</h2>
+	<form method="post">
+		<label for="subject">Subject</label><br>
+		<input type="text" name="subject" class="col-6"><br>
+		<label for="blog">Blog</label><br>
+		<textarea name="blog" spellcheck="true" class="col-6"></textarea><br>
+		<div>{{ error }}</div>
+		<button>Submit</button>
+	</form>
+</section>
 
 {% endblock %}

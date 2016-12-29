@@ -9,9 +9,60 @@
 }
 
 .header {
-	margin-top: 0.8em; 
+	margin: 0.8em 0 0.8em 0; 
 	text-align: center;
 	font-size: 3em;
+}
+
+.blog-header {
+	font-size: 1.5em;
+	width:100%;
+	display: flex;
+	flex-wrap:wrap;
+}
+
+.blog-header__subject {
+
+}
+
+.blog-header__time {
+	text-align: right;
+	font-weight: lighter;
+}
+
+.blog-article {
+	font-size: 1.1em;
+	text-align: justify;
+	margin-bottom: 0.8em;
+}
+
+.subheader {
+	margin-bottom: 0.8em;
+}
+
+input {
+	margin-bottom: 1.8em;
+}
+textarea {
+	height: 30vw;
+	margin-bottom: 0.8em;
+}
+
+button {
+	font-size: 0.8em;
+}
+
+form {
+	margin-top: 1em;
+}
+label {
+	width: 130px;
+	float: left;
+	text-align: center;
+}
+
+label:after {
+	content: ": ";
 }
 
 .row {

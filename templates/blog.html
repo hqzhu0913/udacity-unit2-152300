@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>hello</h2>
-
+<section>
+	{% for post in posts%}
+		<div class="blog-header">
+			<h3 class="blog-header__subject col-8"> {{ post.subject }} </h3>
+			<h5 class="blog-header__time col-4"> {{ post.date }} </h5>
+		</div>
+		<hr>
+		<article class="blog-article col-6"> {{ post.blog }}</article>
+	{% endfor%}
+</section>
 {% endblock %}
